@@ -26,14 +26,17 @@ val snippetsDir by extra(file("build/generated-snippets"))
 
 dependencies {
 //    implementation("org.springframework.boot:spring-boot-starter-oauth2-authorization-server")
-//    implementation("org.springframework.boot:spring-boot-starter-web")
-//    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-//    implementation("org.jetbrains.kotlin:kotlin-reflect")
-//    developmentOnly("org.springframework.boot:spring-boot-devtools")
-//    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-//    testImplementation("org.springframework.boot:spring-boot-starter-test:3.0.4")
-//    testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
-    implementation("org.springframework:spring-context:6.0.9")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.0.4")
+    testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+    testImplementation("io.kotest:kotest-runner-junit5:5.6.0")
+    testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.3")
+
 }
 
 tasks.withType<KotlinCompile> {

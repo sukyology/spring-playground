@@ -1,18 +1,25 @@
 package com.example.playground
 
-import com.example.playground.config.AppConfig
-import com.example.playground.model.CourseService
-import org.springframework.context.ApplicationContext
-import org.springframework.context.annotation.AnnotationConfigApplicationContext
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 
+@SpringBootApplication
 class PlaygroundApplication
 
 fun main(args: Array<String>) {
-    val context: ApplicationContext = AnnotationConfigApplicationContext(AppConfig::class.java)
-    val a = context.getBean(CourseService::class.java)
-    a.list().let {
-        println(it)
-    }
+    runApplication<PlaygroundApplication>(*args)
 }
 
+@RestController
+@RequestMapping("/poc")
+class PocController {
+
+    @GetMapping("/test")
+    fun test(): String {
+        return "Hello Spring Test"
+    }
+}
